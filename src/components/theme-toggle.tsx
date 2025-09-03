@@ -3,7 +3,7 @@ import { Moon, Sun, Laptop } from "lucide-react"
 import { useState, useEffect } from "react"
 
 export function ThemeToggle() {
-  const { theme, setTheme, systemTheme, resolvedTheme } = useTheme()
+  const { theme, setTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
 

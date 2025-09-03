@@ -31,7 +31,7 @@ export function ResumeDownloadButton({
         ignoreElements: (node) =>
           (node as HTMLElement).dataset?.noexport === "true",
       });
-      const imgData = canvas.toDataURL("image/png");
+      // const imgData = canvas.toDataURL("image/png");
 
       const pdf = new jsPDF({
         orientation: "portrait",
