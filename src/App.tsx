@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { ResumeDownloadButton } from "./components/resume-download-button";
 import { ThemeToggle } from "./components/theme-toggle";
 import { useProfile } from "./hooks/use-profile";
@@ -17,7 +16,6 @@ import { ExperienceTimeline } from "./components/experience-timeline";
 import { Skills } from "./components/skills";
 
 function App() {
-  const resumeRef = useRef<HTMLDivElement>(null);
   const { data, isLoading, error } = useProfile();
 
   return (
@@ -39,11 +37,11 @@ function App() {
           <div className="flex items-center gap-2">
             {/* Small screens: compact icon-only resume button */}
             <div className="sm:hidden">
-              <ResumeDownloadButton targetRef={resumeRef} compact />
+              <ResumeDownloadButton compact />
             </div>
             {/* >= sm: full button with label */}
             <div className="hidden sm:block">
-              <ResumeDownloadButton targetRef={resumeRef} />
+              <ResumeDownloadButton />
             </div>
             <ThemeToggle />
           </div>
@@ -125,10 +123,7 @@ function App() {
         </section>
 
         {/* Content columns */}
-        <div
-          ref={resumeRef}
-          className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3 print:bg-white print:text-black"
-        >
+        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3 print:bg-white print:text-black">
           {/* Left column: Skills, Contact/Links */}
           <aside className="lg:col-span-1">
             {data?.skills?.length ? (
