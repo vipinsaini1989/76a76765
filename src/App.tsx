@@ -22,7 +22,7 @@ function App() {
 
   return (
     <main className="min-h-dvh bg-background text-foreground font-sans">
-      <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur">
+      <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur print:hidden">
         <div className="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between">
           <div
             className="flex items-center gap-2"
@@ -54,7 +54,7 @@ function App() {
         {/* LinkedIn-like cover area */}
         <section className="rounded-lg border bg-card">
           <div
-            className="h-36 w-full rounded-t-lg bg-muted bg-[url(../public/images/bg-person.svg)]"
+            className="h-36 w-full rounded-t-lg bg-muted bg-[url(../public/images/bg-person.svg)] hero-1 print:h-16"
             aria-hidden
           />
           <div className="px-4 pb-6 sm:px-6">
