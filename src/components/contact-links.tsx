@@ -1,5 +1,3 @@
-"use client"
-
 import { Github, Globe, Linkedin, LinkIcon, Mail, Phone } from "lucide-react"
 
 type LinkItem = { label: string; url: string }

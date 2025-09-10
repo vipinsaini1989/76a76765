@@ -24,21 +24,45 @@ skills:
 experience:
   - role: "Senior Software Engineer"
     company: "Shiprocket"
+    companyUrl: "https://www.shiprocket.in/"
     period: "03/2021 - Present"
     description: "Shiprocket is India’s largest eCommerce enablement platform, offering AI-driven shipping, fulfillment, and end-to-end customer experience solutions."
     highlights:
-      - "ZOP: Spearheaded the Order Management System for a Shopify-based e-commerce platform with 200+ brands, handling platform issues, feature enhancements, and SEO/Lighthouse improvements."
-      - "Omuni: Led a frontend team of three engineers on a React app supporting 20+ sellers, improving performance and scalability."
-      - "Chrome Extension: Built a Vue.js extension for Logicbricks to automate SAFE-T claims and upload settlement files from Amazon, reducing manual work by 80%."
-      - "Fulfillment: Migrated the Fulfillment app from Angular 10 to 19; integrated Prettier and ESLint, reducing technical debt by 30%."
-      - "Web Component (Sidebar): Created a reusable sidebar web component in Angular 12 with unit and integration tests, cutting development time by 40%."
+      - heading: "ZOP"
+        description: "Spearheaded the Order Management System for a Shopify-based e-commerce platform with 200+ brands, handling platform issues, feature enhancements, and SEO/Lighthouse improvements."
+        link: "https://www.zop.in/"
+      - heading: "Omuni"
+        description: "Led a frontend team of three engineers on a React app supporting 20+ sellers, improving performance and scalability."
+        link: ""
+      - heading: "Chrome Extension"
+        description: "Built a Vue.js extension for Logicbricks to automate SAFE-T claims and upload settlement files from Amazon, reducing manual work by 80%."
+        link: ""
+
+      - heading: "Fulfillment"
+        description: "Migrated the Fulfillment app from Angular 10 to 19; integrated Prettier and ESLint, reducing technical debt by 30%."
+        link: ""
+
+      - heading: "Web Component (Sidebar)"
+        description: "Created a reusable sidebar web component in Angular 12 with unit and integration tests, cutting development time by 40%."
+        link: ""
+
   - role: "Fullstack Developer"
     company: "IoTReady"
+    companyUrl: "https://iotready.co/"
     period: "02/2018 - 02/2021"
     highlights:
-      - "Open Innovation Platform: Built and maintained a Frappe-based platform for Social Alpha (Tata Trusts) supporting global collaboration with JS and Python."
-      - "Meghshala: Developed two Ionic + AWS apps empowering 1,000+ teachers; optimized backend for faster content delivery."
-      - "CMS with Google Apps Script: Created a metadata management CMS, reducing content update time by 50%."
+      - heading: "Open Innovation Platform"
+        description: "Built and maintained a Frappe-based platform for Social Alpha (Tata Trusts) supporting global collaboration with JS and Python."
+        link: ""
+
+      - heading: "Meghshala"
+        description: "Developed two Ionic + AWS apps empowering 1,000+ teachers; optimized backend for faster content delivery."
+        link: ""
+
+      - heading: "CMS with Google Apps Script"
+        description: "Created a metadata management CMS, reducing content update time by 50%."
+        link: ""
+        
 education:
   - degree: "MTech"
     school: "Hindustan University"

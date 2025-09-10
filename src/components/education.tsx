@@ -1,5 +1,3 @@
-"use client";
-
 import type { EducationItem } from "../types/profile";
 import { cn } from "../lib/utils";
 import { Calendar, MapPin } from "lucide-react";

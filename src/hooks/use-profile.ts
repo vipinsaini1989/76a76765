@@ -18,9 +18,11 @@ export function useProfile() {
         if (!res.ok)
           throw new Error(`Failed to fetch profile.md: ${res.status}`);
         const text = await res.text();
+        console.log("🚀 ~ fetchProfile ~ text:", text)
 
         const md = matter(text);
         const fm = md.attributes as any;
+        console.log("🚀 ~ fetchProfile ~ fm:", md)
 
         const aboutHtml = md.body
           ? (marked.parse(md.body) as string)

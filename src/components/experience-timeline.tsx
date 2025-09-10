@@ -1,8 +1,6 @@
-"use client"
-
-import { Calendar, MapPin } from "lucide-react"
-import type { ExperienceItem } from "../types/profile"
-import { cn } from "../lib/utils"
+import { Calendar, ExternalLink, MapPin } from "lucide-react";
+import type { ExperienceItem } from "../types/profile";
+import { cn } from "../lib/utils";
 
 export function ExperienceTimeline({ items }: { items: ExperienceItem[] }) {
   return (
@@ -10,12 +8,26 @@ export function ExperienceTimeline({ items }: { items: ExperienceItem[] }) {
       {items.map((item, idx) => (
         <li key={`${item.company}-${item.role}-${idx}`} className="mb-6">
           <span
-            className={cn("absolute -left-[7px] mt-1 size-3 rounded-full ring-4 ring-background", "bg-sky-600")}
+            className={cn(
+              "absolute -left-[7px] mt-1 size-3 rounded-full ring-4 ring-background",
+              "bg-sky-600"
+            )}
             aria-hidden
           />
           <div>
             <h4 className="font-semibold leading-tight">{item.role}</h4>
-            <p className="text-sm text-muted-foreground">{item.company}</p>
+            <div className=" flex items-center">
+              <p className="text-sm text-muted-foreground me-1">
+                {item.company}
+              </p>
+              <a
+                href={item.companyUrl}
+                target="blank"
+                className=" hover:scale-110 transition"
+              >
+                <ExternalLink className="w-4 h-4 text-sky-600" />
+              </a>
+            </div>
 
             <div className="mt-1 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
               {item.period ? (
@@ -32,13 +44,24 @@ export function ExperienceTimeline({ items }: { items: ExperienceItem[] }) {
               ) : null}
             </div>
 
-            {item.description ? <p className="mt-2 text-sm text-pretty">{item.description}</p> : null}
+            {item.description ? (
+              <p className="mt-2 text-sm text-pretty">{item.description}</p>
+            ) : null}
 
             {item.highlights?.length ? (
               <ul className="mt-2 list-disc pl-5 text-sm marker:text-sky-600">
                 {item.highlights.map((h, i) => (
                   <li key={i} className="text-pretty">
-                    {h}
+                    <span className=" font-medium">{h.heading}: </span>
+                    <span>{h.description}</span>
+                    {h.link ? (
+                      <a
+                        href={h.link}
+                        className=" inline-block ms-1 transition hover:scale-110 text-sky-600"
+                      >
+                        <ExternalLink className="w-3 h-3 " />
+                      </a>
+                    ) : null}
                   </li>
                 ))}
               </ul>
@@ -47,5 +70,5 @@ export function ExperienceTimeline({ items }: { items: ExperienceItem[] }) {
         </li>
       ))}
     </ol>
-  )
+  );
 }
