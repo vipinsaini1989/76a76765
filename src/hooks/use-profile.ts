@@ -11,7 +11,9 @@ export function useProfile() {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await fetch("/content/profile.md");
+        const base = import.meta.env.BASE_URL;
+        const url = `${base}content/profile.md`
+        const res = await fetch(url);
         // debugger;
         if (!res.ok)
           throw new Error(`Failed to fetch profile.md: ${res.status}`);
@@ -29,7 +31,7 @@ export function useProfile() {
           title: fm.title || "",
           company: fm.company || "",
           location: fm.location || "",
-          avatar: fm.avatar || "/diverse-profile-avatars.png",
+          avatar: fm.avatar || "",
           aboutHtml,
           contact: fm.contact || {},
           links: fm.links || [],

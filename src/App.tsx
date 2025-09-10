@@ -14,9 +14,20 @@ import { ContactLinks } from "./components/contact-links";
 import { Education } from "./components/education";
 import { ExperienceTimeline } from "./components/experience-timeline";
 import { Skills } from "./components/skills";
+import { useEffect, useState } from "react";
 
 function App() {
   const { data, isLoading, error } = useProfile();
+  const [avatar, setAvatar] = useState("");
+
+  useEffect(() => {
+    const base = import.meta.env.BASE_URL;
+    let url = `${base}images/placeholder-user.jpg`;
+    if (data?.avatar) {
+      url = `${base}/${data.avatar}`;
+    }
+    setAvatar(url);
+  }, [data]);
 
   return (
     <main className="min-h-dvh bg-background text-foreground font-sans">
@@ -67,7 +78,7 @@ function App() {
             ) : data ? (
               <div className="-mt-10 flex flex-col gap-4 sm:flex-row sm:items-end">
                 <img
-                  src={data.avatar || "/images/placeholder-user.jpg"}
+                  src={avatar}
                   alt={`${data.name} avatar`}
                   className="h-40 h- w-40 rounded-full ring-4 ring-background object-cover shadow shadow-black"
                 />
