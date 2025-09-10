@@ -3,7 +3,7 @@ name: "Vipin Saini"
 title: "Senior Software Engineer"
 company: "Shiprocket"
 location: "India"
-avatar: "../images/1526207208128.jpeg"
+avatar: "../images/1526207208128.png"
 contact:
   phone: "(+91) 8398930678"
   email: "vipinsaini1989@gmail.com"
