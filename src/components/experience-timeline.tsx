@@ -51,7 +51,7 @@ export function ExperienceTimeline({ items }: { items: ExperienceItem[] }) {
             {item.highlights?.length ? (
               <ul className="mt-2 list-disc pl-5 text-sm marker:text-sky-600">
                 {item.highlights.map((h, i) => (
-                  <li key={i} className="text-pretty">
+                  <li key={i} className="text-pretty mb-1">
                     <span className=" font-medium">{h.heading}: </span>
                     <span>{h.description}</span>
                     {h.link ? (
