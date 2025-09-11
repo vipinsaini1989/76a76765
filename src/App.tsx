@@ -30,7 +30,7 @@ function App() {
   }, [data]);
 
   return (
-    <main className="min-h-dvh bg-background text-foreground font-sans">
+    <main className="min-h-dvh bg-background text-foreground font-sans bg-doodle bg-repeat bg-auto dark:bg-auto">
       <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur print:hidden">
         <div className="mx-auto max-w-5xl px-4 py-3 flex items-center justify-between">
           <div

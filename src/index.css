@@ -5,14 +5,18 @@
 :root {
   --background: #eef6ff;
   --foreground: #1a2a4a;
-  --border: #ccd6e0;    
+  --border: #ccd6e0;
+  --card: #ffffff;
+  --card-foreground: #131313;
   --radius: 0.625rem;
 }
 
 .dark {
   --background: #101322;
   --foreground: #f5f7ff;
-  --border: #2a3045;    
+  --border: #2a3045;
+  --card: #151515;
+  --card-foreground: #fbfbfb;
 }
 
 @theme inline {
@@ -63,5 +67,22 @@
   body {
     @apply bg-background text-foreground;
   }
-  @page { size: A4; margin: 6mm }
+  @page {
+    size: A4;
+    margin: 6mm;
+  }
 }
+
+.bg-doodle {
+  background-image: linear-gradient(
+      rgba(255, 255, 255, 0.9),
+      rgba(255, 255, 255, 0.9)
+    ),
+    url("images/doodle_light.png");
+
+  @variant dark {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+      url("images/doodle_dark.jpg");
+  }
+}
+
