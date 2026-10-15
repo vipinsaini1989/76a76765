@@ -1,69 +1,35 @@
-# React + TypeScript + Vite
+# Vipin Saini – Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal resume/portfolio site built with React, TypeScript, Vite and Tailwind CSS.
 
-Currently, two official plugins are available:
+Live: https://vipinsaini1989.github.io/76a76765/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Updating content
 
-## Expanding the ESLint configuration
+All content lives in [`public/content/profile.md`](public/content/profile.md):
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Frontmatter** (YAML between the `---` lines): name, title, contact, links, skills (grouped by category), experience, projects, education.
+- **Body** (below the frontmatter): the "About" summary, written in Markdown.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Other files:
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- `public/Vipin-Saini-CV.pdf` – the PDF served by the "Download Resume" button (set via `resume:` in the frontmatter).
+- `public/images/` – avatar and background images.
+- `index.html` – page title, SEO / Open Graph meta tags and JSON-LD. Update these when the headline changes.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Development
+
+```sh
+npm install
+npm run dev      # http://localhost:5173/76a76765/
+npm run lint
+npm run build
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Deploy
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```sh
+npm run deploy   # builds and publishes dist/ to the gh-pages branch
 ```
+
+The site is served under `/76a76765/` (see `base` in `vite.config.ts`).

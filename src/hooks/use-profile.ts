@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import matter from 'front-matter';
 import { marked } from "marked";
-import type { ProfileData } from "../types/profile";
+import type { ProfileData, ProfileFrontMatter } from "../types/profile";
 
 export function useProfile() {
   const [data, setData] = useState<ProfileData | undefined>(undefined);
@@ -18,8 +18,8 @@ export function useProfile() {
           throw new Error(`Failed to fetch profile.md: ${res.status}`);
         const text = await res.text();
 
-        const md = matter(text);
-        const fm = md.attributes as any;
+        const md = matter<ProfileFrontMatter>(text);
+        const fm = md.attributes;
 
         const aboutHtml = md.body
           ? (marked.parse(md.body) as string)
@@ -31,11 +31,13 @@ export function useProfile() {
           company: fm.company || "",
           location: fm.location || "",
           avatar: fm.avatar || "",
+          resume: fm.resume || "",
           aboutHtml,
           contact: fm.contact || {},
           links: fm.links || [],
           skills: fm.skills || [],
           experience: fm.experience || [],
+          projects: fm.projects || [],
           education: fm.education || [],
         });
       } catch (err) {

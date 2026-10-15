@@ -8,14 +8,34 @@ export type Contact = {
   phone?: string;
 };
 
+export type Highlight = {
+  heading: string;
+  description: string;
+  link?: string;
+};
+
 export type ExperienceItem = {
   role: string;
   company: string;
-  companyUrl: string;
+  companyUrl?: string;
   period?: string;
   location?: string;
   description?: string;
-  highlights?: { heading: string; description: string; link: string }[];
+  highlights?: Highlight[];
+};
+
+export type ProjectItem = {
+  name: string;
+  url?: string;
+  context?: string;
+  period?: string;
+  description: string;
+  tech?: string[];
+};
+
+export type SkillGroup = {
+  category: string;
+  items: string[];
 };
 
 export type EducationItem = {
@@ -25,16 +45,33 @@ export type EducationItem = {
   location?: string;
 };
 
+export type ProfileFrontMatter = {
+  name?: string;
+  title?: string;
+  company?: string;
+  location?: string;
+  avatar?: string;
+  resume?: string;
+  contact?: Contact;
+  links?: LinkItem[];
+  skills?: SkillGroup[];
+  experience?: ExperienceItem[];
+  projects?: ProjectItem[];
+  education?: EducationItem[];
+};
+
 export type ProfileData = {
   name: string;
   title: string;
   company?: string;
   location?: string;
   avatar: string;
+  resume?: string;
   aboutHtml?: string;
   contact?: Contact;
   links?: LinkItem[];
-  skills: string[];
+  skills: SkillGroup[];
   experience: ExperienceItem[];
+  projects: ProjectItem[];
   education: EducationItem[];
 };

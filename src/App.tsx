@@ -3,31 +3,27 @@ import { ThemeToggle } from "./components/theme-toggle";
 import { useProfile } from "./hooks/use-profile";
 import {
   Briefcase,
+  FolderGit2,
   GalleryHorizontalEnd,
   GraduationCap,
   LinkIcon,
   Mail,
   MapPin,
   Phone,
+  Wrench,
 } from "lucide-react";
 import { ContactLinks } from "./components/contact-links";
 import { Education } from "./components/education";
 import { ExperienceTimeline } from "./components/experience-timeline";
 import { Skills } from "./components/skills";
-import { useEffect, useState } from "react";
+import { Projects } from "./components/projects";
+
+const base = import.meta.env.BASE_URL;
 
 function App() {
   const { data, isLoading, error } = useProfile();
-  const [avatar, setAvatar] = useState("");
-
-  useEffect(() => {
-    const base = import.meta.env.BASE_URL;
-    let url = `${base}images/placeholder-user.jpg`;
-    if (data?.avatar) {
-      url = `${base}/${data.avatar}`;
-    }
-    setAvatar(url);
-  }, [data]);
+  const avatar = `${base}${data?.avatar || "images/placeholder-user.jpg"}`;
+  const resumeUrl = `${base}${data?.resume || "Vipin-Saini-CV.pdf"}`;
 
   return (
     <main className="min-h-dvh bg-background text-foreground font-sans bg-doodle bg-repeat bg-auto dark:bg-auto">
@@ -48,11 +44,11 @@ function App() {
           <div className="flex items-center gap-2">
             {/* Small screens: compact icon-only resume button */}
             <div className="sm:hidden">
-              <ResumeDownloadButton compact />
+              <ResumeDownloadButton href={resumeUrl} compact />
             </div>
             {/* >= sm: full button with label */}
             <div className="hidden sm:block">
-              <ResumeDownloadButton />
+              <ResumeDownloadButton href={resumeUrl} />
             </div>
             <ThemeToggle />
           </div>
@@ -80,7 +76,7 @@ function App() {
                 <img
                   src={avatar}
                   alt={`${data.name} avatar`}
-                  className="h-40 h- w-40 rounded-full ring-4 ring-background object-cover shadow shadow-black"
+                  className="h-40 w-40 rounded-full ring-4 ring-background object-cover shadow shadow-black"
                 />
                 <div className="flex-1">
                   <h1 className="text-balance text-2xl font-semibold leading-tight">
@@ -140,7 +136,7 @@ function App() {
             {data?.skills?.length ? (
               <section className="rounded-lg border bg-card p-4">
                 <div className="mb-2 flex items-center gap-2">
-                  <LinkIcon className="size-4 text-sky-600" aria-hidden />
+                  <Wrench className="size-4 text-sky-600" aria-hidden />
                   <h3 className="text-sm font-semibold">Skills</h3>
                 </div>
                 <Skills skills={data.skills} />
@@ -170,6 +166,16 @@ function App() {
                   <h3 className=" font-semibold">Work Experience</h3>
                 </div>
                 <ExperienceTimeline items={data.experience} />
+              </div>
+            ) : null}
+
+            {data?.projects?.length ? (
+              <div className="rounded-lg border bg-card p-4">
+                <div className="mb-2 flex items-center gap-2">
+                  <FolderGit2 className="size-4 text-sky-600" aria-hidden />
+                  <h3 className="font-semibold">Projects</h3>
+                </div>
+                <Projects items={data.projects} />
               </div>
             ) : null}
 

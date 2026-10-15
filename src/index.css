@@ -78,11 +78,11 @@
       rgba(255, 255, 255, 0.9),
       rgba(255, 255, 255, 0.9)
     ),
-    url("images/doodle_light.png");
+    url("/images/doodle_light.png");
 
   @variant dark {
     background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
-      url("images/doodle_dark.jpg");
+      url("/images/doodle_dark.jpg");
   }
 }
 

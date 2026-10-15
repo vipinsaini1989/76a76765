@@ -20,13 +20,17 @@ export function ExperienceTimeline({ items }: { items: ExperienceItem[] }) {
               <p className="text-sm text-muted-foreground me-1">
                 {item.company}
               </p>
-              <a
-                href={item.companyUrl}
-                target="blank"
-                className=" hover:scale-110 transition"
-              >
-                <ExternalLink className="w-4 h-4 text-sky-600" />
-              </a>
+              {item.companyUrl ? (
+                <a
+                  href={item.companyUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Open ${item.company}`}
+                  className=" hover:scale-110 transition"
+                >
+                  <ExternalLink className="w-4 h-4 text-sky-600" />
+                </a>
+              ) : null}
             </div>
 
             <div className="mt-1 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
@@ -57,6 +61,9 @@ export function ExperienceTimeline({ items }: { items: ExperienceItem[] }) {
                     {h.link ? (
                       <a
                         href={h.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Open ${h.heading}`}
                         className=" inline-block ms-1 transition hover:scale-110 text-sky-600"
                       >
                         <ExternalLink className="w-3 h-3 " />
