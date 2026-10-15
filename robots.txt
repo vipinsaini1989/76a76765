@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vipinsaini1989.github.io/76a76765/sitemap.xml
