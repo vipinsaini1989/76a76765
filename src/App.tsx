@@ -159,16 +159,6 @@ function App() {
 
           {/* Right column: Experience, Education */}
           <section className="lg:col-span-2 flex flex-col gap-6">
-            {data?.experience?.length ? (
-              <div className="rounded-lg border bg-card p-4">
-                <div className="mb-2 flex items-center gap-2">
-                  <Briefcase className="size-4 text-sky-600" aria-hidden />
-                  <h3 className=" font-semibold">Work Experience</h3>
-                </div>
-                <ExperienceTimeline items={data.experience} />
-              </div>
-            ) : null}
-
             {data?.projects?.length ? (
               <div className="rounded-lg border bg-card p-4">
                 <div className="mb-2 flex items-center gap-2">
@@ -176,6 +166,16 @@ function App() {
                   <h3 className="font-semibold">Projects</h3>
                 </div>
                 <Projects items={data.projects} />
+              </div>
+            ) : null}
+
+            {data?.experience?.length ? (
+              <div className="rounded-lg border bg-card p-4">
+                <div className="mb-2 flex items-center gap-2">
+                  <Briefcase className="size-4 text-sky-600" aria-hidden />
+                  <h3 className=" font-semibold">Work Experience</h3>
+                </div>
+                <ExperienceTimeline items={data.experience} />
               </div>
             ) : null}
 
